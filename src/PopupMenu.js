@@ -19,23 +19,28 @@ class PopupMenu extends Menu {
     }
 
     onMenuUpdated() {
-        const { x, y } = this.props;
+        const { x, y, onClose } = this.props;
         const { electron } = this.context;
-        const win = electron.remote.getCurrentWindow();
+        const window = electron.remote.getCurrentWindow();
 
-        if (!win) {
+        if (!window) {
             return;
         }
 
         const menu = this.getMenu();
-        menu.popup(win, x, y);
+        menu.popup({
+            window,
+            x, y,
+            callback: onClose
+        });
     }
 }
 
 PopupMenu.propTypes = {
     ...Menu.propTypes,
     x: React.PropTypes.number,
-    y: React.PropTypes.number
+    y: React.PropTypes.number,
+    onClose: React.PropTypes.func
 };
 PopupMenu.contextTypes = Menu.contextTypes;
 
