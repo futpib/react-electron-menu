@@ -1,5 +1,5 @@
 {
-  "name": "react-electron-menu",
+  "name": "@futpib/react-electron-menu",
   "version": "0.3.0",
   "main": "lib/index.js",
   "author": "Samy Pesse <samypesse@gmailk.com>",
