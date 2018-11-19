@@ -1,4 +1,5 @@
 const React = require('react');
+const PropTypes = require('prop-types');
 const { renderToMenu } = require('./render');
 
 /**
@@ -25,11 +26,11 @@ class Menu extends React.Component {
 }
 
 Menu.propTypes = {
-    children: React.PropTypes.node.isRequired
+    children: PropTypes.node.isRequired
 };
 
 Menu.contextTypes = {
-    electron: React.PropTypes.object.isRequired
+    electron: PropTypes.object.isRequired
 };
 
 module.exports = Menu;

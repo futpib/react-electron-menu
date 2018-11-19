@@ -1,18 +1,19 @@
 const React = require('react');
+const PropTypes = require('prop-types');
 const MenuItem = require('./MenuItem');
 
 /**
  * Default edit menu for the application.
  * @type {ReactClass}
  */
-const DefaultEditMenu = React.createClass({
-    propTypes: {
-        children: React.PropTypes.node
-    },
+class DefaultEditMenu extends React.Component {
+    static propTypes = {
+        children: PropTypes.node
+    };
 
-    contextTypes: {
-        electron: React.PropTypes.object.isRequired
-    },
+    static contextTypes = {
+        electron: PropTypes.object.isRequired
+    };
 
     render() {
         const { children } = this.props;
@@ -32,6 +33,6 @@ const DefaultEditMenu = React.createClass({
             </MenuItem>
         );
     }
-});
+}
 
 module.exports = DefaultEditMenu;

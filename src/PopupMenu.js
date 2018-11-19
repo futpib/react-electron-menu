@@ -1,4 +1,4 @@
-const React = require('react');
+const PropTypes = require('prop-types');
 const Menu = require('./Menu');
 
 /**
@@ -38,9 +38,9 @@ class PopupMenu extends Menu {
 
 PopupMenu.propTypes = {
     ...Menu.propTypes,
-    x: React.PropTypes.number,
-    y: React.PropTypes.number,
-    onClose: React.PropTypes.func
+    x: PropTypes.number,
+    y: PropTypes.number,
+    onClose: PropTypes.func
 };
 PopupMenu.contextTypes = Menu.contextTypes;
 

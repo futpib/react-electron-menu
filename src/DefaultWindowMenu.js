@@ -1,18 +1,19 @@
 const React = require('react');
+const PropTypes = require('prop-types');
 const MenuItem = require('./MenuItem');
 
 /**
  * Default window menu to control the window.
  * @type {ReactClass}
  */
-const DefaultWindowMenu = React.createClass({
-    propTypes: {
-        children: React.PropTypes.node
-    },
+class DefaultWindowMenu extends React.Component {
+    static propTypes = {
+        children: PropTypes.node
+    };
 
-    contextTypes: {
-        electron: React.PropTypes.object.isRequired
-    },
+    static contextTypes = {
+        electron: PropTypes.object.isRequired
+    };
 
     render() {
         const { children } = this.props;
@@ -29,6 +30,6 @@ const DefaultWindowMenu = React.createClass({
             </MenuItem>
         );
     }
-});
+}
 
 module.exports = DefaultWindowMenu;

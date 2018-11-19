@@ -1,4 +1,5 @@
 const React = require('react');
+const PropTypes = require('prop-types');
 
 const TYPES = {
     NORMAL:    'normal',
@@ -22,19 +23,19 @@ class MenuItem extends React.Component {
 }
 
 MenuItem.propTypes = {
-    label:       React.PropTypes.string,
-    role:        React.PropTypes.string,
-    type:        React.PropTypes.string,
-    accelerator: React.PropTypes.string,
-    icon:        React.PropTypes.string,
-    checked:     React.PropTypes.bool,
-    enabled:     React.PropTypes.bool,
-    onClick:     React.PropTypes.func,
-    children:    React.PropTypes.node
+    label:       PropTypes.string,
+    role:        PropTypes.string,
+    type:        PropTypes.string,
+    accelerator: PropTypes.string,
+    icon:        PropTypes.string,
+    checked:     PropTypes.bool,
+    enabled:     PropTypes.bool,
+    onClick:     PropTypes.func,
+    children:    PropTypes.node
 };
 
 MenuItem.contextTypes = {
-    electron: React.PropTypes.object.isRequired
+    electron: PropTypes.object.isRequired
 };
 
 module.exports = MenuItem;

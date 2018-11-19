@@ -1,20 +1,21 @@
 const React = require('react');
+const PropTypes = require('prop-types');
 const MenuItem = require('./MenuItem');
 
 /**
  * Default file menu for the application.
  * @type {ReactClass}
  */
-const DefaultFileMenu = React.createClass({
-    propTypes: {
-        appName:  React.PropTypes.string.isRequired,
-        onAbout:  React.PropTypes.func.isRequired,
-        children: React.PropTypes.node
-    },
+class DefaultFileMenu extends React.Component {
+    static propTypes = {
+        appName:  PropTypes.string.isRequired,
+        onAbout:  PropTypes.func.isRequired,
+        children: PropTypes.node
+    };
 
-    contextTypes: {
-        electron: React.PropTypes.object.isRequired
-    },
+    static contextTypes = {
+        electron: PropTypes.object.isRequired
+    };
 
     render() {
         const { appName, children, onAbout } = this.props;
@@ -29,7 +30,7 @@ const DefaultFileMenu = React.createClass({
                     selector="orderFrontStandardAboutPanel"
                     onClick={onAbout}
                     role="about"
-                    />
+                />
                 {children}
                 <MenuItem role="toggledevtools" />
                 {isMac ? <MenuItem.Separator /> : null}
@@ -44,6 +45,6 @@ const DefaultFileMenu = React.createClass({
             </MenuItem>
         );
     }
-});
+}
 
 module.exports = DefaultFileMenu;
